@@ -25,9 +25,8 @@ const TodoList = (props) => {
 
   return (
     <>
-      <form className="mb" data-testid="new-todo-form" onSubmit={handleFormSubmit}>
+      <form className="mb" onSubmit={handleFormSubmit}>
         <input
-          data-testid="new-todo-input"
           type="text"
           value={newTodo}
           onChange={handleNewTodoChange}
@@ -37,7 +36,7 @@ const TodoList = (props) => {
         <button type="submit">Add</button>
       </form>
       <p>Your todos</p>
-      <div data-testid="todo-list">
+      <div>
         {todos.map((todo) => (
           <TodoItem key={todo.id} todo={todo} />
         ))}
