@@ -12,12 +12,12 @@ const App = () => {
       <h1 className="mb">Todo App</h1>
       <ul className="navbar">
         <li>
-          <Link to="/">
+          <Link to="/" data-testid="to-home">
             Home
           </Link>
         </li>
         <li>
-          <Link to="/todos">
+          <Link to="/todos" data-testid="to-todos">
             Todos
           </Link>
         </li>
