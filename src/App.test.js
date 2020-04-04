@@ -22,7 +22,16 @@ describe('user view landing', () => {
     expect(app.queryByText('Welcome to Todo App, manage your tasks easily!')).toBeInTheDocument();
     expect(app.queryByPlaceholderText('Enter your todo')).not.toBeInTheDocument();
     expect(app.queryByTestId('to-home')).toBeInTheDocument();
-    expect(app.queryByTestId('to-todos')).toBeInTheDocument()
+    expect(app.queryByTestId('to-todos')).toBeInTheDocument();
+  })
+  test('snapshot?', () => {
+    const app = render(
+      <Router>
+        <App />
+      </Router>
+    );
+
+    expect(app).toMatchSnapshot();
   })
 })
 
@@ -55,7 +64,7 @@ describe('user interact navbar', () => {
 })
 
 describe('user interact todos', () => {
-  test('app rendered, user click todos, fill value, submit form', () => {
+  test('app rendered, user click todos, fill value, submit form, new item rendered', async () => {
     const app = render(
       <Provider store={store}>
         <Router>
@@ -81,5 +90,7 @@ describe('user interact todos', () => {
       leftClick
     )
     expect(app.queryByDisplayValue("lelegoyang")).not.toBeInTheDocument()
+    await waitForElement(() => app.queryByText("lelegoyang");
+    expect(app.queryByText("lelegoyang")).toBeInTheDocument();
   })
 })
